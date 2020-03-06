@@ -7,8 +7,6 @@ ARG FAUST_EXTENSIONS='fast,rocksdb'
 
 COPY --from=0 /usr /usr
 
-ADD requirements.txt /tmp/requirements.txt
-
 RUN apt-get update && \
     apt-get install -y ${BUILD_DEPS} && \
     pip --no-cache-dir install faust[${FAUST_EXTENSIONS}]&& \
